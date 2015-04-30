@@ -13,7 +13,7 @@
 
       <script>
         $(function() {
-          setupLanguages(["shell","angularjs"]);
+          setupLanguages(["shell"]);
         });
       </script>
   </head>
@@ -29,7 +29,6 @@
       <img src="images/logo.png" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="angularjs">angularjs</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -52,17 +51,6 @@
 </blockquote>
 <pre><code class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"https://wiredin.io/api/v1/people/search?email=any@email.com&amp;auth_token=meowmeowmeow"</span>
-</code></pre>
-<pre><code class="highlight plaintext">$http.jsonp("https://wiredin.io/api/v1/people/search", {
-  params: { 'auth_token': meowmeowmeow,
-            'email': 'any@email.com',
-            'callback': 'JSON_CALLBACK' }
-}).
-success(function(data) {
-}).
-error(function(data, status, headers, config) {
-  var error = data || "Request failed";
-});
 </code></pre>
 
 <blockquote>
@@ -217,9 +205,9 @@ You must replace `meowmeowmeow` with your personal API token.
 
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<aside class="notice">Error response code.</aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The WiredIn APIs uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -229,7 +217,7 @@ You must replace `meowmeowmeow` with your personal API token.
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>Bad Request &ndash; Your request is bad</td>
 </tr>
 <tr>
 <td>401</td>
@@ -237,31 +225,15 @@ You must replace `meowmeowmeow` with your personal API token.
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; The auth token is invalid</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>Not Found &ndash; The specified api could not be found</td>
 </tr>
 <tr>
 <td>406</td>
 <td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slown down!</td>
 </tr>
 <tr>
 <td>500</td>
@@ -277,7 +249,6 @@ You must replace `meowmeowmeow` with your personal API token.
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="angularjs">angularjs</a>
           </div>
       </div>
     </div>
